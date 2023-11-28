@@ -810,6 +810,15 @@ public abstract class AbstractStateMachineFactory<S, E> extends LifecycleObjectS
 							}
 							joins.add(j);
 						}
+					} else if (ss1 instanceof StateMachineState) {
+						List<State<S, E>> k = new ArrayList<State<S, E>>();
+						Collection<State<S, E>> subStates = ((StateMachineState) ss1).getSubmachine().getStates();
+						for (State<S, E> subState : subStates) {
+							if (subState.getPseudoState() != null && subState.getPseudoState().getKind() == PseudoStateKind.END) {
+								k.add(subState);
+							}
+						}
+						joins.add(k);
 					}
 				} else {
 					for (S fs : list) {

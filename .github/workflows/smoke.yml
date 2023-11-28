@@ -1,15 +1,20 @@
 name: Smoke
 
+#on:
+#  workflow_dispatch:
+#  push:
+#    branches:
+#      - 3.2.x
+#    paths-ignore:
+#      - '.github/**'
+#  pull_request:
+#    branches:
+#      - 3.2.x
 on:
-  workflow_dispatch:
   push:
-    branches:
-      - 3.2.x
-    paths-ignore:
-      - '.github/**'
+    branches: [ "main" ]
   pull_request:
-    branches:
-      - 3.2.x
+    branches: [ "main" ]
 
 jobs:
   build:

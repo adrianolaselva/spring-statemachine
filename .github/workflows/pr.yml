@@ -1,9 +1,14 @@
 name: PR
 
+#on:
+#  pull_request:
+#    branches:
+#      - 3.2.x
 on:
+  push:
+    branches: [ "main" ]
   pull_request:
-    branches:
-      - 3.2.x
+    branches: [ "main" ]
 
 jobs:
 
